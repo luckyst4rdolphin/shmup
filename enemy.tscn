@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cl4i52xl2ipm5"]
+
+[ext_resource type="Script" uid="uid://c483ntq1rw2tu" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://uprljmjeyj43" path="res://assets/enemies_projectiles_explosions.png" id="1_7k104"]
+[ext_resource type="PackedScene" uid="uid://cio40bwefatp7" path="res://Explosion.tscn" id="2_qi2p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(25, 18)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=928529236 groups=["enemy"]]
+position = Vector2(210, 65)
+script = ExtResource("1_4gyqm")
+explosion_scene = ExtResource("2_qi2p4")
+
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=1404773973]
+scale = Vector2(0.25862068, 0.32352942)
+texture = ExtResource("1_7k104")
+region_enabled = true
+region_rect = Rect2(272, 232, 87, 51)
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="." unique_id=2075839301]
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="ExplosionPoint" type="Marker2D" parent="EnemyCollision" unique_id=850979369]
