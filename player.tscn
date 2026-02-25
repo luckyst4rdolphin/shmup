@@ -2,16 +2,26 @@
 
 [ext_resource type="Texture2D" uid="uid://betqfi5nhonh1" path="res://assets/ships_biomech.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bgwyqf76if7pv" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://bou1wlxnw1lo1" path="res://Bullet.tscn" id="2_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(26, 18)
 
 [node name="Player" type="CharacterBody2D" unique_id=977988357]
 script = ExtResource("1_onrkg")
+bullet_scene = ExtResource("2_i3pqv")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1068327240]
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1068327240]
 scale = Vector2(0.637931, 0.63793105)
 texture = ExtResource("1_4flbx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1361035457]
+[node name="PlayerHitbox" type="CollisionShape2D" parent="." unique_id=1361035457]
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=139934730]
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1479465571]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
