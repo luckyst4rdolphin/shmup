@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cg7dy136lfdmo"]
+
+[ext_resource type="Texture2D" uid="uid://uprljmjeyj43" path="res://assets/enemies_projectiles_explosions.png" id="1_k74tf"]
+[ext_resource type="Script" uid="uid://b21e1n13w5f8t" path="res://mini_explosion.gd" id="1_mc3ri"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc3ri"]
+atlas = ExtResource("1_k74tf")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25t4p"]
+atlas = ExtResource("1_k74tf")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teo4j"]
+atlas = ExtResource("1_k74tf")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7udie"]
+atlas = ExtResource("1_k74tf")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1qomg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc3ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25t4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teo4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7udie")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MiniExplosion" type="Node2D" unique_id=590413162]
+script = ExtResource("1_mc3ri")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=883890090]
+sprite_frames = SubResource("SpriteFrames_1qomg")
+frame = 3
+frame_progress = 1.0
