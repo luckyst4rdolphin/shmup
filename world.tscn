@@ -61,7 +61,5 @@ position = Vector2(4, 8)
 [node name="BottomRight" type="Marker2D" parent="PlayfieldBounds" unique_id=1980563654]
 position = Vector2(152, 230)
 
-[connection signal="body_entered" from="Bullet" to="Bullet" method="_on_body_entered"]
-
 [editable path="Player"]
 [editable path="Bullet"]
